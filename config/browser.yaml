@@ -1,0 +1,17 @@
+default_context: chrome_headless
+
+contexts:
+  chrome_headless:
+    browser: chrome
+    headless: true
+    window_size: [1280, 720]
+    arguments:
+      - --no-sandbox
+      - --disable-dev-shm-usage
+      - --disable-gpu
+
+  chrome_headed:
+    browser: chrome
+    headless: false
+    window_size: [1280, 720]
+    arguments: []

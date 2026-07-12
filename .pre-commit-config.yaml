@@ -1,0 +1,45 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^python_out/|\.md$
+      - id: end-of-file-fixer
+        exclude: ^python_out/
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-toml
+      - id: debug-statements
+      - id: no-commit-to-branch
+        name: No commit in master
+        args:
+          - --branch=master
+          - --branch=main
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.9
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+        exclude: ^python_out/
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.21.2
+    hooks:
+      - id: pyupgrade
+        args: [--py312-plus]
+        exclude: ^python_out/
+
+  - repo: local
+    hooks:
+      - id: pyright
+        name: Run pyright type checking
+        entry: uv run pyright
+        language: system
+        types: [python]
+        pass_filenames: true
+        exclude: ^python_out/

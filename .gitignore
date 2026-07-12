@@ -1,0 +1,38 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Secrets - never commit
+.env
+*.pem
+*.key
+*credentials*
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Tooling
+.ruff_cache/
+.pytest_cache/
+.hypothesis
+.schemathesis
+.tools/
+
+allure-results/
+allure-report/
+allure-history/
